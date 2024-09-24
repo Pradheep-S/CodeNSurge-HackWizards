@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       
+    <meta charset="UTF-8">
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>News Website - HACKWIZARDS</title>
+       <style>
+        /* Read more link with light red color */
+        .news-item a {
+            color: #ff6666;
+            /* Light red color */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .news-item a:hover {
+            color: #ff4d4d;
+            /* Slightly darker red on hover */
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="/last/styles.css">
+</head>
+
+<body>
+        <header>
+                <h1>Latest News</h1>
+                <input type="text" id="search" placeholder="Search for news...">
+                <button id="search-btn">Search</button>
+            </header>
+
+        <!-- Carousel container for the first 5 articles -->
+       <h1 style="text-align: center;">Breaking News</h1>
+    <div class="carousel-container">
+                <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+                <div class="carousel" id="carousel"></div>
+                <button class="carousel-btn next" id="nextBtn">&#10095;</button>
+            </div>
+
+        <!-- Remaining news articles -->
+        <div id="news-container"></div>
+
+       
+       
+    <script src="/last/script.js"></script>
+</body>
+
+</html>
