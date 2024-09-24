@@ -1,0 +1,156 @@
+/* General reset to remove default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #20232a;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+header input {
+    padding: 15px;
+    width: 350px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+header input:focus {
+    outline: none;
+    border-color: #ff5a5a;
+}
+
+header button {
+    padding: 15px 25px;
+    background-color: #ff5a5a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+header button:hover {
+    background-color: #ff4444;
+}
+
+/* News container */
+#news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* News item styling */
+.news-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Image styling */
+.news-item img {
+    width: 100%;
+    height: 200px;
+    /* Set a fixed height for consistent layout */
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Article Title */
+.news-item h2 {
+    font-size: 1.5rem;
+    color: #20232a;
+    margin-bottom: 10px;
+}
+
+/* Description and Links */
+.news-item p {
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.5;
+    flex-grow: 1;
+    /* Fills remaining space */
+}
+
+.news-item a {
+    color: #ff5a5a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+/* Footer for credits or additional info */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    header input {
+        width: 70%;
+        margin-bottom: 10px;
+    }
+
+    header button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #news-container {
+        grid-template-columns: 1fr;
+    }
+}
