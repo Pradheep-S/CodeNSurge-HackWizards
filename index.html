@@ -6,23 +6,514 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Website - HACKWIZARDS</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="breakstyles.css">
+
+    <style>
+        /* General reset to remove default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #20232a;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+header input {
+    padding: 15px;
+    width: 350px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+header input:focus {
+    outline: none;
+    border-color: #ff5a5a;
+}
+
+header button {
+    padding: 15px 25px;
+    background-color: #ff5a5a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+header button:hover {
+    background-color: #ff4444;
+}
+
+/* News container */
+#news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* News item styling */
+.news-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Image styling */
+.news-item img {
+    width: 100%;
+    height: 200px;
+    /* Set a fixed height for consistent layout */
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Article Title */
+.news-item h2 {
+    font-size: 1.5rem;
+    color: #20232a;
+    margin-bottom: 10px;
+}
+
+/* Description and Links */
+.news-item p {
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.5;
+    flex-grow: 1;
+    /* Fills remaining space */
+}
+
+.news-item a {
+    color: #ff5a5a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+/* Footer for credits or additional info */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    header input {
+        width: 70%;
+        margin-bottom: 10px;
+    }
+
+    header button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #news-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* General reset to remove default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #20232a;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Carousel container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Carousel buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 50%;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+/* News container */
+#news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* News item styling */
+.news-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.news-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+    </style>
 </head>
 
 <body>
     <header>
-        <h1>Latest News</h1>
-        <input type="text" id="search" placeholder="Search for news...">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">DAILY INFO</h1>
+        <button onclick="window.location.href='tasks/index1.html'" class="button">Stockmarket & Weather</button>
+        <button id="ai" onclick="window.location.href='http://127.0.0.1:5000'">AI Assistant</button>
+        <input type="text" id="search" style="margin-left:550px;" placeholder="Search for news...">
         <button id="search-btn">Search</button>
-    </header>
+        <div id="google_translate_element"></div>
 
-    <div id="news-container"></div>
+<button onclick="triggerGoogleTranslate()">Translate Page</button>
+
+<script>
+    function triggerGoogleTranslate() {
+        var translateElement = document.querySelector('.goog-te-combo');
+        if (translateElement) {
+            translateElement.style.display = 'block';
+        }
+    }
+</script>
+    </header>
+    <h1 style="text-align: center;">Breaking News</h1>
+    <div class="carousel-container">
+                <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+                <div class="carousel" id="carousel"></div>
+                <button class="carousel-btn next" id="nextBtn">&#10095;</button>
+            </div>
+
+        <!-- Remaining news articles -->
+        <div id="news-container"></div>
 
     <footer>
         <p>Powered by NewsAPI</p>
     </footer>
-    <a href="tasks/index1.html" class="button">Stockmar</a>
+    
 
-    <script src="script.js"></script>
+    <script>
+        const apiKey = '074389147fd64000a7cb196c412d7d7f';
+const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+
+// Fetch news from the API
+async function fetchNews() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        displayNews(data.articles);
+    } catch (error) {
+        console.error('Error fetching news:', error);
+    }
+}
+
+// Display news on the page
+function displayNews(articles) {
+    const newsContainer = document.getElementById('news-container');
+    newsContainer.innerHTML = '';  // Clear previous content
+
+    articles.forEach(article => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+
+        // Create image element (use a placeholder if image is not available)
+        const imageUrl = article.urlToImage || 'https://via.placeholder.com/400';
+        const newsImage = `<img src="${imageUrl}" alt="News Image">`;
+
+        // Create news item content
+        newsItem.innerHTML = `
+            ${newsImage}
+            <h2>${article.title}</h2>
+            <p>${article.description || 'No description available.'}</p>
+            <a href="${article.url}" target="_blank">Read more</a>
+        `;
+
+        newsContainer.appendChild(newsItem);
+    });
+}
+const carousel = document.getElementById('carousel');
+const newsContainer = document.getElementById('news-container');
+let currentSlide = 0;
+
+// Fetch news from the API
+async function fetchNews() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const articles = data.articles;
+        displayCarousel(articles.slice(0, 5)); // First 5 articles as carousel
+        displayNews(articles.slice(5)); // Remaining articles in the grid
+    } catch (error) {
+        console.error('Error fetching news:', error);
+    }
+}
+
+// Function to display the carousel for the first 5 news articles
+function displayCarousel(articles) {
+    carousel.innerHTML = ''; // Clear the previous carousel
+
+    articles.forEach(article => {
+        const carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+
+        const imageUrl = article.urlToImage || 'https://via.placeholder.com/400';
+        carouselItem.innerHTML = `
+            <img src="${imageUrl}" alt="News Image">
+            <h2>${article.title}</h2>
+            <p>${article.description || 'No description available.'}</p>
+            <a href="${article.url}" target="_blank">Read more</a>
+        `;
+
+        carousel.appendChild(carouselItem);
+    });
+}
+
+// Function to display remaining news in the grid
+function displayNews(articles) {
+    newsContainer.innerHTML = '';  // Clear previous content
+
+    articles.forEach(article => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+
+        const imageUrl = article.urlToImage || 'https://via.placeholder.com/400';
+        newsItem.innerHTML = `
+            <img src="${imageUrl}" alt="News Image">
+            <h2>${article.title}</h2>
+            <p>${article.description || 'No description available.'}</p>
+            <a href="${article.url}" target="_blank">Read more</a>
+        `;
+
+        newsContainer.appendChild(newsItem);
+    });
+}
+
+// Carousel controls
+document.getElementById('prevBtn').addEventListener('click', () => {
+    currentSlide = (currentSlide === 0) ? (carousel.childElementCount - 1) : currentSlide - 1;
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+});
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+    currentSlide = (currentSlide >= carousel.childElementCount - 1) ? 0 : currentSlide + 1;
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+});
+
+// Fetch and display the news when the page loads
+window.onload = () => {
+    fetchNews();
+};
+
+    </script>
+    <script>
+        const apiKey = '074389147fd64000a7cb196c412d7d7f';
+const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+
+const carousel = document.getElementById('carousel');
+const newsContainer = document.getElementById('news-container');
+let currentSlide = 0;
+
+// Fetch news from the API
+async function fetchNews() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const articles = data.articles;
+        displayCarousel(articles.slice(0, 5)); // First 5 articles as carousel
+        displayNews(articles.slice(5)); // Remaining articles in the grid
+    } catch (error) {
+        console.error('Error fetching news:', error);
+    }
+}
+
+// Function to display the carousel for the first 5 news articles
+function displayCarousel(articles) {
+    carousel.innerHTML = ''; // Clear the previous carousel
+
+    articles.forEach(article => {
+        const carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+
+        const imageUrl = article.urlToImage || 'https://via.placeholder.com/400';
+        carouselItem.innerHTML = `
+            <img src="${imageUrl}" alt="News Image">
+            <h2>${article.title}</h2>
+            <p>${article.description || 'No description available.'}</p>
+            <a href="${article.url}" target="_blank">Read more</a>
+        `;
+
+        carousel.appendChild(carouselItem);
+    });
+}
+
+// Function to display remaining news in the grid
+function displayNews(articles) {
+    newsContainer.innerHTML = '';  // Clear previous content
+
+    articles.forEach(article => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+
+        const imageUrl = article.urlToImage || 'https://via.placeholder.com/400';
+        newsItem.innerHTML = `
+            <img src="${imageUrl}" alt="News Image">
+            <h2>${article.title}</h2>
+            <p>${article.description || 'No description available.'}</p>
+            <a href="${article.url}" target="_blank">Read more</a>
+        `;
+
+        newsContainer.appendChild(newsItem);
+    });
+}
+
+// Carousel controls
+document.getElementById('prevBtn').addEventListener('click', () => {
+    currentSlide = (currentSlide === 0) ? (carousel.childElementCount - 1) : currentSlide - 1;
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+});
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+    currentSlide = (currentSlide >= carousel.childElementCount - 1) ? 0 : currentSlide + 1;
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+});
+
+// Fetch and display the news when the page loads
+window.onload = () => {
+    fetchNews();
+};
+
+    </script>
+
 </body>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',  // Set default language of your page
+            includedLanguages: 'hi,ta,te,ml,bn,gu,mr,pa,kn,ur', // Include regional languages (Hindi, Tamil, Telugu, etc.)
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </html>

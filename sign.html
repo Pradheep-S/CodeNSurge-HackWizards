@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            background-color: aliceblue;
+        }
+
+        .container {
+            background-color: rgba(84, 84, 84, 0.8); /* Adjust opacity as needed */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left; /* Align form elements to the left */
+        }
+
+        .form-group label {
+            display: block; /* Make labels block elements */
+            margin-bottom: 5px; /* Add some space between label and input */
+            color: #ffffff; /* Set label color */
+            font-size:20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #0040ff;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .text-center button {
+            width: 200px; /* Increased button width */
+            padding: 20px; /* Increased padding */
+            text-align: center;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid hsl(0, 100%, 64%);
+            background: transparent;
+            color: #ffffff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: border 0.3s ease;
+            font-size: 1.1rem; /* Increased font size */
+            margin: 0 auto; /* Center the button horizontally */
+        }
+
+
+        .text-center button:hover {
+            border: none;
+            background-color: hsl(0, 100%, 64%); /* Change background color on hover */
+            color:white;
+        }
+
+        .text-center button span {
+            background: #0016bd;
+            height: 100%;
+            width: 0;
+            border-radius: 25px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        .text-center button:hover span {
+            width: 100%;
+            background: #69C9D0; /* Dark color */
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DAILY INFO</h1>
+        <h2 id="userLoginTitle">User Login</h2>
+        <form id="userLoginForm" action="http://localhost:7000/insert" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your username" required>
+                <div class="error-message" id="username-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                <div class="error-message" id="username-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile no</label>
+                <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+                <div class="error-message" id="username-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            <div class="text-center">
+                <button type="submit">Sign Up<span></span></button><br>
+                <p>I already have an account</p>
+                <button type="button" onclick="window.location.href='login.html'">Login<span></span></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
