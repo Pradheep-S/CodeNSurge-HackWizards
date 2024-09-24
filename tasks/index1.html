@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market & Weather</title>
+    <link rel="stylesheet" href="/tasks/styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            /* Green background */
+            color: white;
+            /* White text */
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        header input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        header button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #4CAF50;
+            /* Green text */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        header button:hover {
+            background-color: #e7e7e7;
+            /* Light grey on hover */
+        }
+
+        #news-container {
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #dashboard {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            /* Fixed width for cards */
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            /* Scale up on hover */
+        }
+
+        .card h2 {
+            color: #4CAF50;
+            /* Green color for headings */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            /* Dark background */
+            color: white;
+            /* White text */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Latest News</h1>
+        <input type="text" id="search" placeholder="Search for news...">
+        <button id="search-btn">Search</button>
+    </header>
+
+    <div id="news-container"></div>
+
+
+
+    <script src="script.js"></script>
+    <h1>Stock Market & Weather Dashboard</h1>
+
+
+    <section id="dashboard">
+        <!-- Stock Section -->
+        <div class="card" id="stock-market">
+            <h2>Stock Market</h2>
+            <p>Symbol: <span id="stock-symbol"></span></p>
+            <p>Price: $<span id="stock-price"></span></p>
+            <p>Change: <span id="stock-change"></span></p>
+        </div>
+
+        <!-- Weather Section -->
+        <div class="card" id="weather">
+            <h2>Weather</h2>
+            <p>City: <span id="weather-city"></span></p>
+            <p>Temperature: <span id="weather-temp"></span> °C</p>
+            <p>Condition: <span id="weather-condition"></span></p>
+        </div>
+    </section>
+    <footer>
+        <p>hackwizards</p>
+    </footer>
+    <script src="/tasks/script.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
